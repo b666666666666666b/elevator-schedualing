@@ -33,10 +33,10 @@ int main()
 		}
 		else if ((men[i].from == 1 && men[i].to % 2 == 0) || (men[i].from % 2 == 0 && men[i].to == 1)||(men[i].from%2==0&& men[i].to%2==0))
 		{
-			men2[m2++] = men[i];
+			men3[m3++] = men[i];
 		}
 		else
-			men3[m3++] = men[i];
+			men2[m2++] = men[i];
 	}
 	for (i = 0; i < n; i++)
 	{
