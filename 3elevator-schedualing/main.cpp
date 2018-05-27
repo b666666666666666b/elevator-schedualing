@@ -13,17 +13,34 @@ public:
 	int to;
 };
 
-int main()
+int main(int argc, char* argv[])
 {
-	int i, n,n1=0,n2=0,n3=0,m1=0,m2=0,m3=0;
-	freopen("input.txt", "r", stdin);
+	ofstream outfile1;
+	ofstream outfile2;
+	ofstream outfile3;
+	ifstream infile;
+	int i, n, n1 = 0, n2 = 0, n3 = 0, m1 = 0, m2 = 0, m3 = 0;
+	if (argc == 2)
+	{
+		infile.open(argv[1]);
+		outfile1.open("output1.txt");
+		outfile2.open("output2.txt");
+		outfile3.open("output3.txt");
+	} 
+	else if(argc==5)
+	{
+		infile.open(argv[1]);
+		outfile1.open("output1.txt");
+		outfile2.open("output2.txt");
+		outfile3.open("output3.txt");
+	}
 	elevator dianti;
 	dianti.lift = 0; dianti.time = 0;
 	man men[1000], men1[1000], men2[1000], men3[1000];
-	cin >> n;
+	infile >> n;
 	for (i = 0; i < n; i++)
 	{
-		cin >> men[i].request >> men[i].from >> men[i].to;
+		infile >> men[i].request >> men[i].from >> men[i].to;
 	}
 	for (i = 0; i < n; i++)
 	{
@@ -65,6 +82,7 @@ int main()
 			break;
 		}
 	}
+	
 	for (i = 0; i < n1; i++)
 	{
 		dianti.move1(dianti.lift, men1[i].from, men1[i].to, dianti.time, men1[i].request);
